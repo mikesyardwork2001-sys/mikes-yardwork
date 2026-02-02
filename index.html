@@ -1,0 +1,750 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mike's Yardwork | Mowing, Trimming, Cleanup & Landscaping</title>
+<link rel="icon" type="image/png" href="favicon.png">
+  <meta name="description" content="Mike's Yardwork serving El Dorado, Loomis, Rancho Cordova, and Folsom. Mowing, trimming, cleanup, and landscaping. Text or call for a quote." />
+
+  <style>
+    :root{
+      --bg:#ffffff;
+      --ink:#0b1220;
+      --muted:#5b6476;
+      --card:#f6f8fb;
+      --line:#e6eaf2;
+      --brand:#1f7a3e;
+      --brand2:#145a2d;
+      --shadow: 0 10px 30px rgba(11,18,32,.08);
+      --radius: 18px;
+      --max: 1100px;
+      --pad: clamp(16px, 3vw, 28px);
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--ink);
+      background:linear-gradient(180deg, #ffffff 0%, #fbfcff 55%, #ffffff 100%);
+    }
+    a{color:inherit; text-decoration:none}
+    img{max-width:100%; height:auto; display:block}
+
+    /* Layout */
+    .wrap{max-width:var(--max); margin:0 auto; padding:0 var(--pad)}
+    .row{display:flex; gap:18px; align-items:center}
+    .between{justify-content:space-between}
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 18px;
+    }
+
+    /* Header */
+    header{
+      position:sticky; top:0; z-index:20;
+      background:rgba(255,255,255,.75);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(230,234,242,.8);
+    }
+    .nav{
+      padding: 12px 0;
+    }
+    .brand{
+      display:flex; align-items:center; gap:12px; min-width: 240px;
+    }
+    .logo{
+      width:52px; height:52px; border-radius:14px;
+      background:#fff; border:1px solid var(--line);
+      box-shadow: 0 6px 18px rgba(11,18,32,.06);
+      overflow:hidden;
+      display:grid; place-items:center;
+    }
+    .brand-title{
+      line-height:1.1;
+      font-weight:800;
+      letter-spacing:-.02em;
+    }
+    .brand-title span{display:block; font-weight:600; color:var(--muted); font-size:12px; margin-top:4px}
+    nav .links{
+      display:flex; gap:14px; align-items:center;
+      font-weight:600; color:var(--muted);
+    }
+    nav .links a{
+      padding:10px 10px;
+      border-radius: 12px;
+    }
+    nav .links a:hover{background:rgba(31,122,62,.08); color:var(--ink)}
+    .nav-cta{display:flex; gap:10px; align-items:center}
+
+    /* Buttons */
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      gap:10px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      border:1px solid var(--line);
+      background:#fff;
+      box-shadow: 0 10px 20px rgba(11,18,32,.06);
+      font-weight:800;
+      cursor:pointer;
+      transition: transform .12s ease, box-shadow .12s ease, background .12s ease;
+      white-space:nowrap;
+    }
+    .btn:hover{transform: translateY(-1px); box-shadow: var(--shadow)}
+    .btn.primary{
+      background: linear-gradient(180deg, var(--brand) 0%, var(--brand2) 100%);
+      color:#fff;
+      border-color: rgba(0,0,0,.06);
+    }
+    .btn.primary:hover{filter: brightness(1.02)}
+    .btn.ghost{
+      background: rgba(31,122,62,.08);
+      border-color: rgba(31,122,62,.18);
+      color: var(--brand2);
+      box-shadow:none;
+    }
+    .btn.small{padding:10px 12px; font-weight:800; border-radius: 12px}
+
+    /* Hero */
+  .hero{
+  min-height: 420px;
+}
+    .hero-card{
+      border:1px solid var(--line);
+      background: radial-gradient(1200px 400px at 10% 0%, rgba(31,122,62,.14), transparent 55%),
+                  radial-gradient(1200px 400px at 90% 20%, rgba(20,90,45,.10), transparent 55%),
+                  #fff;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: clamp(18px, 4vw, 36px);
+      overflow:hidden;
+    }
+    .hero h1{
+      margin:0 0 10px;
+      font-size: clamp(28px, 4vw, 44px);
+      letter-spacing:-.03em;
+      line-height:1.08;
+    }
+    .hero p{
+      margin:0 0 18px;
+      color: var(--muted);
+      font-size: clamp(15px, 1.6vw, 18px);
+      line-height:1.6;
+      max-width: 58ch;
+    }
+    .chips{display:flex; flex-wrap:wrap; gap:10px; margin: 14px 0 18px}
+    .chip{
+      padding: 10px 12px;
+      background: rgba(31,122,62,.08);
+      border:1px solid rgba(31,122,62,.16);
+      color: var(--brand2);
+      border-radius: 999px;
+      font-weight:700;
+      font-size: 13px;
+    }
+    .hero-actions{display:flex; flex-wrap:wrap; gap:10px; margin-top: 10px}
+    .hero-right{
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.75);
+      border-radius: var(--radius);
+      padding: 18px;
+    }
+    .kpi{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+      margin-top:12px;
+    }
+    .kpi .box{
+      border:1px solid var(--line);
+      background: var(--card);
+      border-radius: 16px;
+      padding: 14px;
+    }
+    .kpi .big{font-weight:900; font-size: 16px}
+    .kpi .small{color:var(--muted); font-size: 12px; margin-top:6px; line-height:1.35}
+
+    /* Sections */
+    section{padding: 34px 0}
+    .section-title{
+      display:flex; align-items:end; justify-content:space-between; gap:16px;
+      margin-bottom: 16px;
+    }
+    .section-title h2{
+      margin:0;
+      font-size: clamp(20px, 2.5vw, 28px);
+      letter-spacing:-.02em;
+    }
+    .section-title p{margin:0; color:var(--muted); max-width: 60ch}
+
+    .card{
+      border:1px solid var(--line);
+      background:#fff;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 18px;
+    }
+    .service{
+      display:flex; gap:12px;
+    }
+    .icon{
+      width:42px; height:42px;
+      border-radius: 14px;
+      background: rgba(31,122,62,.10);
+      border:1px solid rgba(31,122,62,.16);
+      display:grid; place-items:center;
+      font-weight:900;
+      color: var(--brand2);
+      flex: 0 0 auto;
+    }
+    .service h3{margin:0 0 6px; font-size: 16px}
+    .service p{margin:0; color:var(--muted); line-height:1.5; font-size: 14px}
+
+    /* Gallery placeholders */
+    .gallery{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 12px;
+    }
+    .ph{
+      border:1px solid var(--line);
+      border-radius: 18px;
+      overflow:hidden;
+      background: var(--card);
+      min-height: 180px;
+      position:relative;
+    }
+    .ph img{width:100%; height:100%; object-fit:cover}
+    .ph .tag{
+      position:absolute;
+      bottom:10px; left:10px;
+      background: rgba(255,255,255,.82);
+      border:1px solid rgba(230,234,242,.9);
+      padding:8px 10px;
+      border-radius: 999px;
+      font-weight:800;
+      font-size: 12px;
+      color: var(--ink);
+      backdrop-filter: blur(8px);
+    }
+
+    /* Contact */
+    .contact-grid{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:18px;
+      align-items:stretch;
+    }
+    .info{
+      display:grid;
+      gap:12px;
+    }
+    .info a{
+      display:flex; gap:12px; align-items:flex-start;
+      padding: 14px;
+      border-radius: 16px;
+      border:1px solid var(--line);
+      background: var(--card);
+    }
+    .info strong{display:block}
+    .info span{display:block; color:var(--muted); margin-top:4px; line-height:1.35}
+
+    footer{
+      padding: 22px 0 36px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* Responsive */
+    .hide-mobile{display:block}
+    .hide-desktop{display:none}
+
+    @media (max-width: 880px){
+      nav .links{display:none}
+      .hide-mobile{display:none}
+      .hide-desktop{display:block}
+      .grid{grid-template-columns: 1fr}
+      .contact-grid{grid-template-columns: 1fr}
+    }
+
+/* ===== Reviews Section ===== */
+#reviews {
+  padding: 80px 20px;
+  background: #f8f9f8;
+}
+
+#reviews .container {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#reviews h2 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+#reviews p {
+  max-width: 600px;
+  margin: 0 auto 30px;
+  color: #555;
+}
+
+.review {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 24px;
+  margin: 20px auto;
+  max-width: 700px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  text-align: left;
+}
+
+.review strong {
+  display: block;
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.review p {
+  margin: 0;
+  color: #333;
+}
+
+/* ===== Review Form Styling ===== */
+.review-form {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 30px;
+  background: #ffffff;
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+}
+
+.review-form .form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.review-form label {
+  font-weight: 600;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.review-form .input,
+.review-form textarea,
+.review-form select {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  font-size: 16px;
+}
+
+.review-form textarea {
+  resize: vertical;
+}
+
+.review-form .btn {
+  margin-top: 20px;
+  padding: 14px;
+  width: 100%;
+  font-size: 18px;
+  border-radius: 999px;
+  background: #2f7d32;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.review-form .btn:hover {
+  background: #256528;
+}
+
+@media (max-width: 700px) {
+  .review-form .form-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.hidden { display: none; }
+
+  </style>
+</head>
+
+<body>
+</section>
+
+  <!-- Header -->
+  <header>
+    <div class="wrap nav">
+      <div class="row between">
+        <a class="brand" href="#top" aria-label="Go to top">
+          <div class="logo">
+            <!-- Upload to Weebly and paste the direct image URL below -->
+            <img src="logo.png" alt="Mike's Yardwork logo" />
+          </div>
+          <div class="brand-title">
+            Mike's Yardwork
+            <span>Trimming • Mowing • Cleanup • Landscaping</span>
+          </div>
+        </a>
+
+        <nav class="row">
+          <div class="links">
+            <a href="#services">Services</a>
+            <a href="#areas">Service Area</a>
+            <a href="#gallery">Photos</a>
+            <a href="#reviews">Reviews</a>
+            <a href="#contact">Contact</a>
+          </div>
+
+          <div class="nav-cta">
+            <a class="btn small ghost hide-mobile" href="sms:+15303871512?&body=Hi%20Mike!%20I%27d%20like%20a%20quote%20for%20yardwork.%20My%20city%20is%20____%20and%20I%20need%20help%20with%20____.">Text for a Quote</a>
+            <a class="btn small primary" href="tel:+15303871512">Call Now</a>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <main id="top" class="hero">
+    <div class="wrap">
+      <div class="hero-card">
+        <div class="grid" style="align-items:stretch;">
+          <div style="grid-column: span 7;">
+            <h1>Clean, reliable yardwork — done right.</h1>
+            <p>
+              Serving <strong>El Dorado</strong> and nearby areas (Loomis, Rancho Cordova, Folsom).
+              Fast response, friendly service, and a clean finish every time.
+            </p>
+
+            <div class="chips" aria-label="Popular services">
+              <div class="chip">Mowing</div>
+              <div class="chip">Trimming</div>
+              <div class="chip">Cleanup</div>
+              <div class="chip">Landscaping</div>
+              <div class="chip">Sprinklers</div>
+              <div class="chip">Fix dead spots</div>
+            </div>
+
+            <div class="hero-actions">
+              <a class="btn primary" href="sms:+15303871512?&body=Hi%20Mike!%20I%27d%20like%20a%20quote%20for%20yardwork.%20My%20city%20is%20____%20and%20I%20need%20help%20with%20____.">Text for a Quote</a>
+              <a class="btn" href="tel:+15303871512">Call Now</a>
+              <a class="btn" href="#services">See Services</a>
+            </div>
+          </div>
+
+          <div style="grid-column: span 5;">
+            <div class="hero-right">
+              <div class="card" style="box-shadow:none; background:transparent; border:0; padding:0;">
+                <div style="display:flex; gap:12px; align-items:center;">
+                  <div class="icon">✓</div>
+                  <div>
+                    <div style="font-weight:900;">Free quote by text or call</div>
+                    <div style="color:var(--muted); margin-top:4px;">Quick replies during business hours.</div>
+                  </div>
+                </div>
+
+                <div class="kpi">
+                  <div class="box">
+                    <div class="big">Hours</div>
+                    <div class="small">10am – 5pm<br/>Text / Call</div>
+                  </div>
+                  <div class="box">
+                    <div class="big">Area</div>
+                    <div class="small">El Dorado • Loomis<br/>Rancho • Folsom</div>
+                  </div>
+                </div>
+
+                <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
+                  <a class="btn small ghost" href="mailto:mikesyardwork2001@gmail.com">Email</a>
+                  <a class="btn small" href="#contact">Contact Info</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div><!-- /grid -->
+      </div><!-- /hero-card -->
+    </div>
+  </main>
+
+  <!-- Services -->
+  <section id="services">
+    <div class="wrap">
+      <div class="section-title">
+        <div>
+          <h2>Services</h2>
+          <p>Professional help for regular maintenance or a one-time clean up.</p>
+        </div>
+      </div>
+
+      <div class="grid">
+        <div class="card" style="grid-column: span 6;">
+          <div class="service">
+            <div class="icon">🌿</div>
+            <div>
+              <h3>Mowing</h3>
+              <p>Clean, even cuts to keep your yard looking sharp and healthy.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="grid-column: span 6;">
+          <div class="service">
+            <div class="icon">✂️</div>
+            <div>
+              <h3>Trimming & Edging</h3>
+              <p>Trim along fences, walkways, and edges for a crisp, finished look.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="grid-column: span 6;">
+          <div class="service">
+            <div class="icon">🧹</div>
+            <div>
+              <h3>Cleanup</h3>
+              <p>Yard cleanups, debris removal, and leaving the area neat when finished.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="grid-column: span 6;">
+          <div class="service">
+            <div class="icon">🏡</div>
+            <div>
+              <h3>Landscaping</h3>
+              <p>Basic landscaping help to improve the look and health of your yard.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="grid-column: span 6;">
+          <div class="service">
+            <div class="icon">💧</div>
+            <div>
+              <h3>Sprinklers</h3>
+              <p>Help setting up sprinklers and improving watering coverage.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="grid-column: span 6;">
+          <div class="service">
+            <div class="icon">🟩</div>
+            <div>
+              <h3>Fix Dead Spots</h3>
+              <p>Help patching thin areas and getting grass growth back on track.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:14px;">
+        <a class="btn primary" href="sms:+15303871512?&body=Hi%20Mike!%20I%27d%20like%20a%20quote.%20My%20city%20is%20____%20and%20I%20need%20help%20with%20____.">Text for a Quote</a>
+        <a class="btn" href="tel:+15303871512" style="margin-left:10px;">Call Now</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Areas -->
+  <section id="areas">
+    <div class="wrap">
+      <div class="section-title">
+        <div>
+          <h2>Service Area</h2>
+          <p>Based in <strong>El Dorado</strong>. Available in nearby cities including Loomis, Rancho Cordova, and Folsom.</p>
+        </div>
+      </div>
+
+      <div class="grid">
+        <div class="card" style="grid-column: span 7;">
+          <h3 style="margin:0 0 10px;">Cities I serve</h3>
+          <p style="margin:0; color:var(--muted); line-height:1.6;">
+            • El Dorado<br/>
+            • Loomis<br/>
+            • Rancho Cordova<br/>
+            • Folsom<br/><br/>
+            Not sure if you’re in range? Text me your address/city and I’ll let you know.
+          </p>
+        </div>
+
+        <div class="card" style="grid-column: span 5;">
+          <h3 style="margin:0 0 10px;">Fast quote</h3>
+          <p style="margin:0; color:var(--muted); line-height:1.6;">
+            Send a quick text with:
+            <br/>1) City
+            <br/>2) What you need (mowing, trimming, cleanup, etc.)
+            <br/>3) Photo (optional)
+          </p>
+          <div style="margin-top:12px;">
+            <a class="btn primary" href="sms:+15303871512?&body=Hi%20Mike!%20I%27m%20in%20____.%20I%20need%20help%20with%20____.%20(You%20can%20add%20a%20photo%20too.)">Text for a Quote</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section id="gallery">
+  <div class="wrap">
+    <div class="section-title">
+      <div>
+        <h2>Photos</h2>
+        <p>Placeholders for now — you can replace these with your own before/after photos anytime.</p>
+      </div>
+    </div>
+
+    <div class="gallery">
+      <div class="ph" style="grid-column: span 6;">
+        <img src="yard1.png" alt="Yardwork photo 1">
+        <div class="tag">Before / After</div>
+      </div>
+
+      <div class="ph" style="grid-column: span 6;">
+        <img src="yard2.png" alt="Yardwork photo 2">
+        <div class="tag">Cleanup</div>
+      </div>
+
+      <div class="ph" style="grid-column: span 6;">
+        <img src="yard3.png" alt="Yardwork photo 3">
+        <div class="tag">Trimming</div>
+      </div>
+
+      <div class="ph" style="grid-column: span 6;">
+        <img src="yard4.png" alt="Yardwork photo 4">
+        <div class="tag">Mowing</div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="reviews" class="section">
+  <div class="container">
+    <h2>Reviews</h2>
+    <p>
+      Reviews from local customers. If I’ve helped you out, feel free to leave one below.
+    </p>
+
+<form name="reviews" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thanks.html" class="review-form">
+  <input type="hidden" name="form-name" value="reviews" />
+
+  <!-- Spam trap (hidden) -->
+  <p class="hidden">
+    <label>Don’t fill this out: <input name="bot-field" /></label>
+  </p>
+
+  <div class="form-grid">
+    <div>
+      <label class="label" for="review-name">Name</label>
+      <input class="input" id="review-name" type="text" name="name" placeholder="Your name" required />
+    </div>
+
+    <div>
+      <label class="label" for="review-rating">Rating</label>
+      <select class="input" id="review-rating" name="rating" required>
+        <option value="" disabled selected>Select</option>
+        <option value="5">5 - Excellent</option>
+        <option value="4">4 - Good</option>
+        <option value="3">3 - Okay</option>
+        <option value="2">2 - Not great</option>
+        <option value="1">1 - Bad</option>
+      </select>
+    </div>
+  </div>
+
+  <label class="label" for="review-message">Review</label>
+  <textarea class="input" id="review-message" name="review" rows="5" placeholder="How was the work?" required></textarea>
+
+  <button class="btn" type="submit">Submit Review</button>
+
+  <p class="tiny muted" style="margin-top:10px;">
+    Reviews are approved before being posted.
+  </p>
+</form>
+
+
+
+  </div>
+</section>
+
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="wrap">
+      <div class="section-title">
+        <div>
+          <h2>Contact</h2>
+          <p>Text or call during business hours. If I miss you, I’ll reply as soon as I can.</p>
+        </div>
+      </div>
+
+      <div class="contact-grid">
+        <div class="card">
+          <h3 style="margin:0 0 12px;">Get a quote</h3>
+          <p style="margin:0 0 16px; color:var(--muted); line-height:1.6;">
+            Tap a button below:
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn primary" href="sms:+15303871512?&body=Hi%20Mike!%20I%27d%20like%20a%20quote.%20My%20city%20is%20____%20and%20I%20need%20help%20with%20____.">Text for a Quote</a>
+            <a class="btn" href="tel:+15303871512">Call Now</a>
+            <a class="btn" href="mailto:mikesyardwork2001@gmail.com">Email</a>
+          </div>
+
+          <div style="margin-top:14px; border-top:1px solid var(--line); padding-top:14px; color:var(--muted); line-height:1.6;">
+            <strong style="color:var(--ink);">Business hours:</strong> 10am – 5pm<br/>
+            <strong style="color:var(--ink);">Service area:</strong> El Dorado, Loomis, Rancho Cordova, Folsom
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 style="margin:0 0 12px;">Contact details</h3>
+          <div class="info">
+            <a href="tel:+15303871512">
+              <div class="icon">📞</div>
+              <div>
+                <strong>(530) 387-1512</strong>
+                <span>Tap to call</span>
+              </div>
+            </a>
+
+            <a href="sms:+15303871512?&body=Hi%20Mike!%20I%27d%20like%20a%20quote.%20My%20city%20is%20____%20and%20I%20need%20help%20with%20____.">
+              <div class="icon">💬</div>
+              <div>
+                <strong>Text for a Quote</strong>
+                <span>Fastest way to reach me</span>
+              </div>
+            </a>
+
+            <a href="mailto:mikesyardwork2001@gmail.com">
+              <div class="icon">✉️</div>
+              <div>
+                <strong>mikesyardwork2001@gmail.com</strong>
+                <span>Tap to email</span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      © <span id="year"></span> Mike's Yardwork • El Dorado, CA • Text/Call: (530) 387-1512
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
