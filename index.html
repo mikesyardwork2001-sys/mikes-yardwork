@@ -633,13 +633,14 @@
       Reviews from local customers. If I’ve helped you out, feel free to leave one below.
     </p>
 
-<form name="reviews" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thanks.html" class="review-form">
+<form action="https://formsubmit.co/mikesyardwork2001@gmail.com" method="POST" class="review-form">
+<input type="hidden" name="_subject" value="New Review - Mike’s Yardwork" />
+<input type="hidden" name="_next" value="https://mikesyardwork2001-sys.github.io/mikes-yardwork/thanks.html" />
+<input type="hidden" name="_captcha" value="true" />
+<input type="hidden" name="_template" value="table" />
   <input type="hidden" name="form-name" value="reviews" />
 
   <!-- Spam trap (hidden) -->
-  <p class="hidden">
-    <label>Don’t fill this out: <input name="bot-field" /></label>
-  </p>
 
   <div class="form-grid">
     <div>
